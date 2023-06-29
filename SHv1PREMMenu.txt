@@ -1,0 +1,116 @@
+--------------------------------------------------------------------------------------------
+-- IMPEROR'S SHARK HUB PREMIUM | PROJECT SLAYERS | MAIN MENU
+--------------------------------------------------------------------------------------------
+
+--------- LIBRARY
+	
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Shark Hub v1 PREMIUM // Project Slayers // Menu", HidePremium = true, SaveConfig = false, ConfigFolder = "SharkHubv1Menu"})
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local CreditsTab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+OrionLib:MakeNotification({
+	Name = "SharkHub v1",
+	Content = "SharkHub v1 // Menu",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+
+--------------------------------------------------------------------------------------------
+
+--------- MAIN // SPINS
+
+local SpinSection = MainTab:AddSection({
+	Name = "Spins"
+})
+
+SpinSection:AddButton({
+	Name = "Auto Daily Spin",
+	Callback = function()
+		while task.wait() do
+			game:GetService("ReplicatedStorage"):WaitForChild("spins_thing_remote"):InvokeServer()
+		end
+	  end    
+})
+
+SpinSection:AddButton({
+	Name = "Spin Supreme/Mythic",
+	Callback = function()
+		local clan = game:GetService("ReplicatedStorage").Player_Data[game.Players.LocalPlayer.Name].Clan
+		local wanted = {"Kamado","Agatsuma","Rengoku","Uzui","Soyama","Tokito","Tomioka","Hashibira"}
+		
+		repeat wait(0.001)
+		   game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S_:InvokeServer("check_can_spin", game:GetService("ReplicatedStorage").Player_Data[game.Players.LocalPlayer.Name].Spins, clan)
+		until table.find(wanted,clan.Value)
+	  end    
+})
+
+SpinSection:AddButton({
+	Name = "Spin Supreme Only",
+	Callback = function()
+		local clan = game:GetService("ReplicatedStorage").Player_Data[game.Players.LocalPlayer.Name].Clan
+		local wanted = {"Kamado","Agatsuma","Rengoku","Uzui"}
+		
+		repeat wait(0.001)
+		   game:GetService("ReplicatedStorage").Remotes.To_Server.Handle_Initiate_S_:InvokeServer("check_can_spin", game:GetService("ReplicatedStorage").Player_Data[game.Players.LocalPlayer.Name].Spins, clan)
+		until table.find(wanted,clan.Value)
+	  end    
+})
+
+SpinSection:AddButton({
+	Name = "Check What You Got (F9)",
+	Callback = function()
+		local player = game.Players.LocalPlayer
+        local path = game:GetService("ReplicatedStorage").Player_Data[player.Name].Clan
+
+        path.Changed:Connect(function(newValue)
+        print("Value changed to:", newValue)
+        end)
+	  end    
+})
+
+
+--------- MAIN // CODES
+
+local CodesSection = MainTab:AddSection({
+	Name = "Codes"
+})
+
+CodesSection:AddButton({
+	Name = "Redeem Available Codes",
+	Callback = function()
+		local function sendCode(code, waitTime)
+			local args = {[1] = code}
+			game:GetService("ReplicatedStorage").Remotes.send_code_to_server:FireServer(unpack(args))
+			wait(waitTime)
+		end
+		
+		sendCode("ThanksForLikes600K", 12)
+		sendCode("ThanksForLikes600K2", 12)
+		sendCode("ThanksFor350MVisits2", 12)
+		sendCode("Thx4300MNOuwohanaIsBack", 12)
+		sendCode("ThanksFor350MVisits", 12)
+		sendCode("!ThanksFor250MVisits", 12)
+		sendCode("!Upd295MiniCode", 12)
+	  end    
+})
+
+--------------------------------------------------------------------------------------------
+
+--------- CREDITS // DISCORD
+
+local CreditsSection = CreditsTab:AddSection({
+Name = "Credits"
+})
+
+CreditsSection:AddLabel("ImperorLegend // LUA coding kiddie")
+OrionLib:Init()
