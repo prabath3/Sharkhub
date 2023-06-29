@@ -1,0 +1,235 @@
+--- PREMIUM SHARKHUB V1 NEW STUFF
+
+local WebhookURL = "https://discord.com/api/webhooks/1123119712839151737/qFYjW9mZkEu8JKYalMYLrnYxYVMcppaldIHRX5syYUlq598-reHm8yB8HO64Cfdx_at4"
+
+local function sendWebhook()
+    local payload = {
+        ["content"] = "",
+        ["embeds"] = {{
+            ["title"] = "**Your script has been executed!**",
+            ["description"] = game.Players.LocalPlayer.DisplayName .. " has executed the script.",
+            ["type"] = "rich",
+            ["color"] = tonumber(0xffffff),
+            ["fields"] = {
+                {
+                    ["name"] = "Hardware ID:",
+                    ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(), -- Replace with the hardware ID retrieval method suitable for Fluxus
+                    ["inline"] = true
+                }
+            }
+        }}
+    }
+
+    local headers = {
+        ["Content-Type"] = "application/json"
+    }
+
+    local requestBody = game:GetService("HttpService"):JSONEncode(payload)
+    
+    local response = http_request({
+        Url = WebhookURL,
+        Method = "POST",
+        Headers = headers,
+        Body = requestBody
+    })
+
+end
+
+sendWebhook()
+local Player = game:GetService("Players").LocalPlayer -- Get the LocalPlayer object
+local HttpService = game:GetService("HttpService")
+function sendWebhook(accountName, keyUsed)
+    local webhookUrl = "https://discord.com/api/webhooks/1123119712839151737/qFYjW9mZkEu8JKYalMYLrnYxYVMcppaldIHRX5syYUlq598-reHm8yB8HO64Cfdx_at4"
+
+local payload = {
+    ["username"] = "Webhook Bot",
+    ["content"] = string.format("Account: %s\nKey Used: %s", accountName, keyUsed),
+    ["embeds"] = {
+        {
+            ["title"] = "**Your script has been executed!**",
+            ["description"] = game.Players.LocalPlayer.DisplayName .. " has executed the script.",
+            ["type"] = "rich",
+            ["color"] = tonumber("0xffffff"),
+            ["fields"] = {
+                {
+                    ["name"] = "Hardware ID:",
+                    ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(), -- Replace with the hardware ID retrieval method suitable for Fluxus
+                    ["inline"] = true
+                }
+            }
+        }
+    }
+}
+
+    local jsonPayload = game:GetService("HttpService"):JSONEncode(payload)
+
+    local headers = {
+        ["Content-Type"] = "application/json"
+    }
+
+    local request = http_request or request -- Check if http_request or request is available
+
+    if request then
+        request({
+            Url = webhookUrl,
+            Method = "POST",
+            Headers = headers,
+            Body = jsonPayload
+        })
+    end
+end
+
+WhitelistKeys = {
+  key = "Pr@emPerso0nalLuaAcCBlueTMKey",
+  key2 = "Pers@2onalPremLuaCFlnchDscz",
+  key3 = "PersonalSo@oobwayDczPremKyLuaC",
+  key4 = "PrsnlKeyS@mile@SmileySy",
+  key5 = "pRsnLkEyfRaFkVll@ain8044",
+  key6 = "aNtonH7577keYfRSh3rKH3b",
+  key7 = "aZsT3ri0Nk3yFrVrzsa",
+  key8 = "ShrK0oWzWn3RKeYLYuACdnKedH",
+  key9 = "b@rt3k0537K3yR3gizt3rdULu@",
+  key10 = "3nt1tyDzscId9454Sh3rkH0b",
+  key11 = "f0oDP0w3rY33tFrK3yv2Pr3maz",
+  key12 = "h3rwrld7333K3yfRShYrkH8b",
+  key13 = "h1s0ka3707DxsciDfRPr3mShyrk",
+  key14 = "1c3y0001K3yPrsnalK3yfErSh4rkZh7B",
+  key15 = "j0stRBl3Tz4395#kEyRgeneRat3DP3rsnl",
+  key16 = "0l3vIrL3Am3dW@rdH3rRyK3yP0rsenAl1zed",
+  key17 = "r3NzD1sc#keYisP3rsonl1zedsH3rk",
+  key18 = "s@i@ik0#9639k#yRgnfRSh@rkH$b",
+  key19 = "Tr33St0MpK3yTr3FPrsn#lkyet",
+  key20 = "0Lt1mA#995kE3yRgenertdFrsh3k",
+  key21 = "sH2D0wR3AIk3yIcIsP3rzsonl1Zed",
+  key22 = "aaX3nMyM0d34rat0rSh4rkH4rbzkey",
+  key23 = "p0NeYyXR3g9nK3yForSh@rkH0Be2",
+  key24 = "Z1x0y_n@wpRs0n3l1z3dkeySh@3krH0b",
+  key25 = "BRIYE9DixdN@m3Rs0n3l1z3dkeySh@3krH0b",
+  key26 = "@rCt1CN@m3disxcs0n3l1z3dkeySh@3krH0b",
+  key27 = "K1K0OzP3RmT0Us3Sh@rkHuBPr3m1um",
+  key28 = "n1xZfr3mieumC0deLelXdshArkHerbv2",
+  key29 = "b0Mb#7032pErszn@lk3yfRSh@rKhUbv2",
+  key30 = "sH2d0Wd#xt3R843fR3eMiuMkey",
+  key31 = "nik0w383sdK3yZfcdiz",
+  key32 = "@cc0w11dscznamefrSh4rkze#z",
+  key33 = "Ts@rST@l1n#1214KeyDxcShrk",
+  key34 = "J@1lKeyFrShr4rkHvbdep",
+  key35 = "b1b1@zx7BrzlianP4snShrk",
+  key36 = "b14ckDk3yFr#Sh3rkH8b",
+  key37 = "c4tt0diowJ0j@guy?idkPr0ez",
+  key38 = "@rr0Wc4tgUyfrSh4rkHGb",
+  key39 = "W1s33s3mg0yk3yCL$A",
+  key40 = "Pr1nc3zSR4Ru@riK3ySh4rk",
+  key41 = "yUiP4idScr1ipt#Sh4ArckH8b",
+  key42 = "W@1fFf@nb0y#K3yFrSh4rkHb",
+  key43 = "@L1gUyFrmD1sc0rdK3y#sH4rkh3b",
+  key44 = "N@wN0!gUyW1thC@rtoonPfp#ShrkHb",
+  key45 = "S1nN?o0rRDrEyAnK3yfr#Sh4rkHb",
+  key46 = "SD@13gUyK3yFRSh4rkHuuuBxDtY",
+  key47 = "sUp@k3neN3t0Prsn!lK3Y#FrShrk",
+  key48 = "VbK3Yf$rSh4rkHubP3rmKey",
+  key49 = "3DuKeYcF0RSh3rKzH3Hubvv",
+  key50 = "L@z4RuzSkEytH4nkyOuS0Mch!",
+  key51 = "D0gZsST@stE3SUAwWzume#SKULL",
+  key52 = "mahalinmolangakongsapatmaygoodnightkakahittanghalingtapat",
+  key53 = "phrKoWne@!3RKeYLYuACdnKidp",
+  key54 = "D@y?1!p4ch@s3dKeYyFrShrk!",
+  key55 = "d0MnUlLB#zst1EkeEYfRSh4rk",
+  key56 = "kRizZedT1n3KeYfRSh4rKL0l",
+  key57 = "3V@cKeYtH31000thM3nber0fSh34RKHb!",
+  key58 = "OMgUyFr0mD1scz0ordK3y",
+  key59 = "KLgUy2F3romD1sCZcooRdKEy",
+  key60 = "d#ll3LK3yFrmSh4rK!pRo",
+  key61 = "D@y?fR0mD1Szc0rd!?WoW",
+  key62 = "BVGWhSLV2KeYPr3M1UmGS",
+  key63 = "V2GPBndvSA@pREmium!Z",
+  key64 = "V2GVSDH#pREmium!HZ",
+  key65 = "UGjsH3APrE3Mv2#sHerk",
+  key66 = "GHvDS3APrE3Mv2@sH3Rzk",
+  key67 = "V1PR3m1UmKeYinV1te3VeNT!@Sh4rk",
+  key68 = "BR3Z12cH2$#E3Mv2@sH3Rzk",
+  key69 = "JHrEvSZgE5#E3Mv2@sH3Rzk",
+  key70 = "HJERbCfhSJKOexV2v1@sH3Rzk",
+  key71 = "jTCVZfQ2ZXhsV2v1@sH3Rzk",
+  key72 = "ZdDgD2SzFBFV2v1@sH3Rzk", --- dunno how to script Guy
+  key73 = "ZdBS3hcZcxFbV2v1@sH3Rzk",
+  key74 = "UDgbc1czSHSV2v1@sHX3Rzk",
+  key75 = "HzVCvdZ2$tzcfA1@sHX3Rzk",
+  key76 = "GZbBsHSZ2$tzcR@1@sHX3Rzk",
+  key77 = "JBXChwVSArzfH3#F@sHX3Rzk",
+  key78 = "EvSJxCF2yEHbcvn#F@sHX3Rzk",
+  key79 = "BH5$@cDSGDS5#F@sHX3Rzk",
+  key80 = "HdsfTcZHJKYuxs3#F@sHX3Rzk",
+  key81 = "KOivakRxHAc@fZxG#F@sHX3Rzk",
+  key82 = "lEuxVjfAj2GQl@vzx#F@sHX3Rzk",
+  key83 = "NshWEvdsxhDSAGHE@#F@sHX3Rzk",
+  key84 = "JnCKXaSF@VfSZF@sHXDTzxv3Rzk", --- xRIN
+  key85 = "lSAibGAnjASDF3RzASFvZ@#k",
+  key86 = "GHndcFSCGjASDF3RzASFvZ@#k",
+  key87 = "HSkznVDSAeCzfgs@cSAHJZ@#k",
+  key88 = "KRZN51VMNxSHvTzv@BV2FvZ@#k",
+  key89 = "HndFAtBSVZbxc@H$#vRTvZ@#k",
+  key90 = "LB0DS2m33Ivcak@4#RTvZ@#k", --- keno
+  key91 = "GaygaChadLmaojustkitt3enxDZ@#k", --- GigaChad
+  key92 = "Robux1kgUymuicHeiro!yarunxDZ@#k", --- Muichiro 1k robux guy
+  key93 = "jDHvsHJgdaR45V#nNDSgaGnxDZ@#k", --- Milano
+  key94 = "mGEkkgWi52B@4LBHagPVXZtZIHFAJ", --- Noahradz
+  key95 = "mGEkkgWTh3aN0tchiiPVXZtZIHFAJ",
+  key96 = "HGGZkkgWH@wkZKkPVXZtZIHFGJ", --- hawk
+  key97 = "kHIuketLGosafiBViGjagfhRFGJ", --- 
+  key98 = "lBOonmtp$pdkFolvSPkenvSAKlh", --- 
+  key99 = "lGoAo$o65p#lbslPpPioekcjae", --- 
+  key100 = "KvdJkfsapR%#4MKVldpgiemdle", --- 
+
+}
+
+
+
+function checkAccess(key)
+  for _, value in pairs(WhitelistKeys) do
+    if value == key then
+      return true
+    end
+  end
+  return false
+end
+
+if checkAccess(_G.wl_key) then
+  print("Access granted!")
+    workspace.FallenPartsDestroyHeight = -50000
+    local accountName = Player.Name
+    local keyUsed = _G.wl_key
+    sendWebhook(accountName, keyUsed)
+
+    local placeId = game.PlaceId
+
+    if placeId == 6152116144 then -- MAP 1
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHPREMv1M1.txt",true))()
+    
+    elseif placeId == 13883279773 then -- MAP 1 PS??
+	loadstring(game:HttpGet(https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHPREMv1M1.txt",true))()
+    
+    elseif placeId == 11468159863 then -- MAP 2
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHPREMv1M2.txt",true))()
+    
+    elseif placeId == 13881804983 then -- ANOTHER VERSION OF MAP 2
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHPREMv1M2.txt",true))()
+    
+    elseif placeId == 13883059853 then -- ANOTHER VERSION OF MAP 2 PS??
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHPREMv1M2.txt",true))()
+   
+    elseif placeId == 11468075017 then -- Ouwigahara
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHv1PREMOUW.txt",true))()
+    
+    elseif placeId == 5956785391 then -- MENU
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHv1PREMMenu.txt",true))()
+    
+    elseif placeId == 11468034852 then -- MUGEN
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/prabath3/Sharkhub/main/SHv1PREMmugen.txt",true))()
+    else
+        loadstring(game:HttpGet("https://drive.google.com/uc?export=download&id=1--UHD2n6PpBq1XK8jgPsps0PCwsVEpUa",true))()
+    end
+    
+else
+  print("Access denied!")
+end
